@@ -53,6 +53,7 @@
                     android:gravity="center"
                     android:text="A"
                     android:textSize="30sp"
+                    android:onClick="onClick"
                     tools:layout_editor_absoluteX="8dp"
                     tools:layout_editor_absoluteY="392dp" />
 
@@ -64,6 +65,7 @@
                     android:gravity="center"
                     android:text="Ą"
                     android:textSize="30sp"
+                    android:onClick="onClick"
                     tools:layout_editor_absoluteX="52dp"
                     tools:layout_editor_absoluteY="384dp" />
 
@@ -74,6 +76,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="B"
+                    android:onClick="onClick"
                     android:textSize="30sp" />
 
                 <TextView
@@ -83,6 +86,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="C"
+                    android:onClick="onClick"
                     android:textSize="30sp" />
 
                 <TextView
@@ -92,6 +96,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="Ć"
+                    android:onClick="onClick"
                     android:textSize="30sp" />
 
                 <TextView
@@ -101,6 +106,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="D"
+                    android:onClick="onClick"
                     android:textSize="30sp" />
 
                 <TextView
@@ -110,6 +116,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="E"
+                    android:onClick="onClick"
                     android:textSize="30sp" />
 
                 <TextView
@@ -119,6 +126,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="Ę"
+                    android:onClick="onClick"
                     android:textSize="30sp" />
             </LinearLayout>
 
@@ -141,7 +149,8 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="F"
-                    android:textSize="25sp"
+                    android:onClick="onClick"
+                    android:textSize="30sp"
                     tools:layout_editor_absoluteX="8dp"
                     tools:layout_editor_absoluteY="392dp" />
 
@@ -152,7 +161,8 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="G"
-                    android:textSize="24sp"
+                    android:onClick="onClick"
+                    android:textSize="30sp"
                     tools:layout_editor_absoluteX="52dp"
                     tools:layout_editor_absoluteY="384dp" />
 
@@ -163,7 +173,8 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="H"
-                    android:textSize="25sp" />
+                    android:onClick="onClick"
+                    android:textSize="30sp" />
 
                 <TextView
                     android:id="@+id/i"
@@ -172,7 +183,8 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="I"
-                    android:textSize="25sp" />
+                    android:onClick="onClick"
+                    android:textSize="30sp" />
 
                 <TextView
                     android:id="@+id/j"
@@ -181,7 +193,8 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="J"
-                    android:textSize="25sp" />
+                    android:onClick="onClick"
+                    android:textSize="30sp" />
 
                 <TextView
                     android:id="@+id/k"
@@ -190,7 +203,8 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="K"
-                    android:textSize="25sp" />
+                    android:onClick="onClick"
+                    android:textSize="30sp" />
 
                 <TextView
                     android:id="@+id/l"
@@ -199,7 +213,8 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="L"
-                    android:textSize="25sp" />
+                    android:onClick="onClick"
+                    android:textSize="30sp" />
 
                 <TextView
                     android:id="@+id/ł"
@@ -208,7 +223,8 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="Ł"
-                    android:textSize="25sp" />
+                    android:onClick="onClick"
+                    android:textSize="30sp" />
             </LinearLayout>
         </TableRow>
 
@@ -229,7 +245,8 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="M"
-                    android:textSize="25sp"
+                    android:onClick="onClick"
+                    android:textSize="30sp"
                     tools:layout_editor_absoluteX="8dp"
                     tools:layout_editor_absoluteY="392dp" />
 
@@ -240,7 +257,8 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="N"
-                    android:textSize="24sp"
+                    android:onClick="onClick"
+                    android:textSize="30sp"
                     tools:layout_editor_absoluteX="52dp"
                     tools:layout_editor_absoluteY="384dp" />
 
@@ -251,7 +269,8 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="Ń"
-                    android:textSize="25sp" />
+                    android:onClick="onClick"
+                    android:textSize="30sp" />
 
                 <TextView
                     android:id="@+id/o"
@@ -260,7 +279,8 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="O"
-                    android:textSize="25sp" />
+                    android:onClick="onClick"
+                    android:textSize="30sp" />
 
                 <TextView
                     android:id="@+id/ó"
@@ -269,7 +289,8 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="Ó"
-                    android:textSize="25sp" />
+                    android:onClick="onClick"
+                    android:textSize="30sp" />
 
                 <TextView
                     android:id="@+id/p"
@@ -278,7 +299,8 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="P"
-                    android:textSize="25sp" />
+                    android:onClick="onClick"
+                    android:textSize="30sp" />
 
                 <TextView
                     android:id="@+id/r"
@@ -287,7 +309,8 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="R"
-                    android:textSize="25sp" />
+                    android:onClick="onClick"
+                    android:textSize="30sp" />
 
                 <TextView
                     android:id="@+id/s"
@@ -296,7 +319,8 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="S"
-                    android:textSize="25sp" />
+                    android:onClick="onClick"
+                    android:textSize="30sp" />
             </LinearLayout>
         </TableRow>
 
@@ -317,7 +341,8 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="Ś"
-                    android:textSize="25sp"
+                    android:onClick="onClick"
+                    android:textSize="30sp"
                     tools:layout_editor_absoluteX="8dp"
                     tools:layout_editor_absoluteY="392dp" />
 
@@ -328,7 +353,8 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="T"
-                    android:textSize="24sp"
+                    android:onClick="onClick"
+                    android:textSize="30sp"
                     tools:layout_editor_absoluteX="52dp"
                     tools:layout_editor_absoluteY="384dp" />
 
@@ -339,7 +365,8 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="U"
-                    android:textSize="25sp" />
+                    android:onClick="onClick"
+                    android:textSize="30sp" />
 
                 <TextView
                     android:id="@+id/w"
@@ -348,7 +375,8 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="W"
-                    android:textSize="25sp" />
+                    android:onClick="onClick"
+                    android:textSize="30sp" />
 
                 <TextView
                     android:id="@+id/y"
@@ -357,7 +385,8 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="Y"
-                    android:textSize="25sp" />
+                    android:onClick="onClick"
+                    android:textSize="30sp" />
 
                 <TextView
                     android:id="@+id/z"
@@ -366,7 +395,8 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="Z"
-                    android:textSize="25sp" />
+                    android:onClick="onClick"
+                    android:textSize="30sp" />
 
                 <TextView
                     android:id="@+id/ź"
@@ -375,7 +405,8 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="Ź"
-                    android:textSize="25sp" />
+                    android:onClick="onClick"
+                    android:textSize="30sp" />
 
                 <TextView
                     android:id="@+id/ż"
@@ -384,9 +415,26 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="Ż"
-                    android:textSize="25sp" />
+                    android:onClick="onClick"
+                    android:textSize="30sp" />
             </LinearLayout>
         </TableRow>
     </TableLayout>
+
+    <TextView
+        android:id="@+id/word"
+        android:layout_width="324dp"
+        android:layout_height="72dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="Duupa"
+        android:textSize="50sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
 </android.support.constraint.ConstraintLayout>
