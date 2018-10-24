@@ -1,9 +1,11 @@
-package com.example.dives.wisielec;
+package com.example.dives.wisielec.view;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import com.example.dives.wisielec.R;
 
 public class SplashScreen extends Activity {
 
@@ -26,7 +28,7 @@ public class SplashScreen extends Activity {
             public void run() {
                 // This method will be executed once the timer is over
                 // Start your app main activity
-                Intent i = new Intent(SplashScreen.this, MainActivity.class);
+                Intent i = new Intent(SplashScreen.this, MainWindow.class);
                 startActivity(i);
 
                 // close this activity
