@@ -7,6 +7,7 @@ import android.widget.Toast;
 import com.example.dives.wisielec.model.Game;
 
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -33,8 +34,17 @@ public class GameController {
 //    }
 //}
 
-    public void checkLetter(String s) {
+    public List<Integer> checkLetter(String s) {
+        List<Integer> positions = new ArrayList<>();
 
+        for(Integer i = 0; i<this.word.length(); i++)
+        {
+            if(this.word.indexOf(s, i)!=-1){
+                positions.add(this.word.indexOf(s, i));
+            }
+        }
+
+        return positions;
     }
 
     public String getWord(){

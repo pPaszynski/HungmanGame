@@ -21,10 +21,10 @@ public class Game {
     private void generateWord(){
         if (this.category.equals("Państwa")) {
             Random rand = new Random();
-            this.word = countries.get(rand.nextInt(countries.size()));
+            this.word = countries.get(rand.nextInt(countries.size())).toUpperCase();
         } else if (this.category.equals("Miasta")) {
             Random rand = new Random();
-            this.word = cities.get(rand.nextInt(cities.size()));
+            this.word = cities.get(rand.nextInt(cities.size())).toUpperCase();
         }
         printCategory();
         System.out.println(getWord());
