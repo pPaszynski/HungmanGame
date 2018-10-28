@@ -9,6 +9,18 @@
     tools:context=".view.GameWindow">
 
     <ImageView
+        android:id="@+id/refreshImageView"
+        android:layout_width="0dp"
+        android:layout_height="602dp"
+        android:onClick="endAction"
+        android:src="@android:color/transparent"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
         android:id="@+id/imageView2"
         android:layout_width="188dp"
         android:layout_height="268dp"
@@ -27,16 +39,15 @@
         android:layout_width="368dp"
         android:layout_height="184dp"
         android:layout_marginBottom="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent">
+        tools:layout_editor_absoluteX="10dp">
 
         <TableRow
-            android:layout_width="5dp"
-            android:layout_height="49dp"
+            android:layout_width="368dp"
+            android:layout_height="46dp"
+            android:gravity="center"
             android:visibility="visible">
 
             <LinearLayout
@@ -133,8 +144,8 @@
         </TableRow>
 
         <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="368dp"
+            android:layout_height="46dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -229,8 +240,8 @@
         </TableRow>
 
         <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="368dp"
+            android:layout_height="46dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -325,8 +336,8 @@
         </TableRow>
 
         <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="368dp"
+            android:layout_height="46dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -421,6 +432,19 @@
         </TableRow>
     </TableLayout>
 
+    <ImageView
+        android:id="@+id/coverKeyimageView"
+        android:layout_width="372dp"
+        android:layout_height="184dp"
+        android:layout_weight="1"
+        android:src="@android:color/transparent"
+        android:visibility="gone"
+        android:onClick="endAction"
+        app:layout_constraintBottom_toTopOf="@+id/score"
+        app:layout_constraintEnd_toEndOf="@+id/tableLayout"
+        app:layout_constraintStart_toStartOf="@+id/tableLayout"
+        app:layout_constraintTop_toTopOf="@+id/tableLayout" />
+
     <TextView
         android:id="@+id/word"
         android:layout_width="324dp"
@@ -436,5 +460,35 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <TextView
+        android:id="@+id/score"
+        android:layout_width="wrap_content"
+        android:layout_height="16dp"
+        android:layout_marginEnd="179dp"
+        android:layout_marginLeft="180dp"
+        android:layout_marginRight="179dp"
+        android:layout_marginStart="180dp"
+        android:gravity="center"
+        android:text="Score: "
+        android:textSize="8sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/category"
+        android:layout_width="wrap_content"
+        android:layout_height="16dp"
+        android:layout_marginEnd="159dp"
+        android:layout_marginLeft="159dp"
+        android:layout_marginRight="159dp"
+        android:layout_marginStart="159dp"
+        android:text="Kategoria: "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

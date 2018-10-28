@@ -2,5 +2,12 @@
     <string name="app_name">Wisielec</string>
     <string name="start_game">Start</string>
     <string name="letters_size">30sp</string>
+    <string-array name="category_names">
+
+        <item>Państwa</item>
+        <item>Miasta</item>
+        <item>Zwierzęta</item>
+
+    </string-array>
 
 </resources>

@@ -1,31 +1,49 @@
 package com.example.dives.wisielec.view;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.annotation.VisibleForTesting;
+import android.text.Layout;
+import android.text.format.Time;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TableLayout;
 import android.widget.TextView;
 
 import com.example.dives.wisielec.R;
 import com.example.dives.wisielec.controller.GameController;
+import com.example.dives.wisielec.model.PrefSingleton;
+import com.example.dives.wisielec.model.Ranking;
 
+import java.sql.Timestamp;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import static android.graphics.Color.GRAY;
+import static android.graphics.Color.RED;
+import static android.graphics.Color.WHITE;
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
 
 
 public class GameWindow extends Activity {
 
+    private RelativeLayout relativeLayout;
     private GameController gameController;
     private Integer[] ids;
-    private Integer counter = 0;
+    private Integer counter = 0, score = 0, game=0, best=0;
     private String guessWord = "";
-    private TextView wordTextview;
-    private ImageView statImageView;
+    private TextView wordTextview, scoreTextView, categoryTextView;
+    private ImageView statImageView, refreshImageViev, coverKeyImageView;
+    private PrefSingleton prefSingleton;
     //private TextView[] letters;
+
+//    SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,16 +51,43 @@ public class GameWindow extends Activity {
         setContentView(R.layout.game);
 
         statImageView = (ImageView) findViewById(R.id.imageView2);
+        scoreTextView = (TextView) findViewById(R.id.score);
+        categoryTextView = (TextView) findViewById(R.id.category);
+        refreshImageViev = (ImageView) findViewById(R.id.refreshImageView);
+        coverKeyImageView = (ImageView) findViewById(R.id.coverKeyimageView);
+
+//        sharedPreferences = getSharedPreferences("ranking", Context.getApplicationContext());
+
+        refreshImageViev.setVisibility(GONE);
+        coverKeyImageView.setVisibility(GONE);
+        gameController = GameController.getInstance();
+
+        prefSingleton = PrefSingleton.getInstance();
+        prefSingleton.Initialize(getApplicationContext());
+        this.best = prefSingleton.getInteger("best", 0);
+
         setImage();
+        setScore();
+        setCategory(gameController.getCategory());
         wordTextview = (TextView)findViewById(R.id.word);
 
         setFontLetters();
-        gameController = new GameController();
+        //gameController = new GameController("Państwa");
         setWordView(gameController.getWord());
 
         Intent intent = getIntent();
 
 
+    }
+
+    private void setScore() {
+        String text = "Score: "+score;
+        scoreTextView.setText(text);
+    }
+
+    private void setCategory(String category){
+        String text = "Kategoria: "+category;
+        categoryTextView.setText(text);
     }
 
     private void setFontLetters() {
@@ -61,6 +106,7 @@ public class GameWindow extends Activity {
             TextView textView = (TextView) findViewById(aa);
             Typeface font = Typeface.createFromAsset(getAssets(), "fonts/mistral.ttf");
             textView.setTypeface(font);
+            textView.setTextColor(WHITE);
             //textView.setOnClickListener(onClickListener);
         }
     }
@@ -77,23 +123,51 @@ public class GameWindow extends Activity {
         Integer id = view.getId();
         TextView letter = (TextView)findViewById(id);
         System.out.println(letter.getText().toString());
+        letter.setTextColor(GRAY);
+        letter.setEnabled(false);
         if(gameController.checkLetter(letter.getText().toString()).isEmpty())
         {
             setImage();
         }else{
             displayLetter(gameController.checkLetter(letter.getText().toString()));
             checkWin();
-            System.out.println(gameController.checkLetter(letter.getText().toString()));
-        }
-        letter.setTextColor(GRAY);
-        letter.setEnabled(false);
-        System.out.println(letter.getText().toString());
+            }
     }
 
     private void checkWin() {
         if(this.guessWord.indexOf("_")==-1){
-            statImageView.setImageResource(R.drawable.win);
+            this.game=1;
+            this.statImageView.setImageResource(R.drawable.win);
+            this.wordTextview.setText(gameController.getWord());
+            this.score = this.score + gameController.getWord().length();
+            setScore();
             disableKey();
+            this.refreshImageViev.setVisibility(VISIBLE);
+            this.coverKeyImageView.setVisibility(VISIBLE);
+        }
+    }
+
+    private void refreshGame() {
+        this.gameController.randomCategory();
+        setCategory(this.gameController.getCategory());
+        this.gameController.getGame();
+        this.counter=0;
+        this.game=0;
+        this.guessWord="";
+        this.refreshImageViev.setVisibility(GONE);
+        this.coverKeyImageView.setVisibility(GONE);
+        setImage();
+        setWordView(this.gameController.getWord());
+        refreshLetters();
+    }
+
+    private void refreshLetters(){
+        for(Integer aa: ids)
+        {
+            TextView textView = (TextView) findViewById(aa);
+            textView.setEnabled(true);
+            textView.setTextColor(WHITE);
+            //textView.setOnClickListener(onClickListener);
         }
     }
 
@@ -119,19 +193,35 @@ public class GameWindow extends Activity {
                 break;
             case 6:
                 statImageView.setImageResource(R.drawable.st6);
+                wordTextview.setTextColor(RED);
                 disableKey();
+                refreshImageViev.setVisibility(VISIBLE);
+                coverKeyImageView.setVisibility(VISIBLE);
+                checkRecords();
                 break;
         }
         counter++;
         System.out.println(counter);
     }
 
+    private void checkRecords() {
+        if(this.score > this.best){
+            this.best = this.score;
+            prefSingleton.putInteger("best", this.best);
+        }
+    }
+
+    public Integer getBest(){
+        return this.best;
+    }
+
     public void setWordView(String word) {
 
+        System.out.println(word);
         for(Integer i=0; i < word.length(); i++){
             this.guessWord = guessWord+"_";
         }
-        this.wordTextview.setText(guessWord.toString());
+        this.wordTextview.setText(guessWord);
     }
 
     private void displayLetter(List<Integer> pos){
@@ -148,7 +238,7 @@ public class GameWindow extends Activity {
     }
 
     private void refreshWord(){
-        this.wordTextview.setText(guessWord.toString());
+        this.wordTextview.setText(this.guessWord);
     }
 
     private void disableKey() {
@@ -161,7 +251,19 @@ public class GameWindow extends Activity {
         {
             TextView textView = (TextView) findViewById(aa);
             textView.setEnabled(false);
+            //textView.setVisibility(View.GONE);
             //textView.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void endAction(View view) {
+        if(this.game==1){
+            refreshGame();
+        }else{
+            System.out.println("dupppppa");
+            finish();
+//            Intent intent = new Intent(this, MainWindow.class);
+//            startActivity(intent);
         }
     }
 }
